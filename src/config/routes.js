@@ -1,8 +1,9 @@
 /* eslint-disable react/jsx-key */
-import React, { lazy } from 'react'
-import AuthorizedRoute from 'base-shell/lib/components/AuthorizedRoute/AuthorizedRoute'
-import UnauthorizedRoute from 'base-shell/lib/components/UnauthorizedRoute/UnauthorizedRoute'
-import { Route } from 'react-router-dom'
+import React, { lazy } from 'react';
+import AuthorizedRoute from 'base-shell/lib/components/AuthorizedRoute/AuthorizedRoute';
+import { Route } from 'react-router-dom';
+import PublicRoute from '../utils/PublicRoute';
+import PrivateRoute from '../utils/PrivateRoute';
 
 const SignIn = lazy(() => import('../pages/SignIn/SignIn'))
 const SignUp = lazy(() => import('../pages/SignUp/SignUp'))
@@ -16,21 +17,21 @@ const ListPageDemo = lazy(() => import('../pages/ListPageDemo'))
 const TabsDemo = lazy(() => import('../pages/TabsDemo'))
 
 const routes = [
-  <UnauthorizedRoute path="/signin" redirectTo="/" exact component={SignIn} />,
-  <UnauthorizedRoute path="/signup" redirectTo="/" exact component={SignUp} />,
-  <UnauthorizedRoute
+  <PublicRoute path="/signin" redirectTo="/" exact component={SignIn} />,
+  <PublicRoute path="/signup" redirectTo="/" exact component={SignUp} />,
+  <PublicRoute
     path="/password_reset"
     redirectTo="/"
     exact
     component={PasswordReset}
   />,
   <Route path="/about" exact component={About} />,
-  <AuthorizedRoute path="/home" exact component={Home} />,
-  <AuthorizedRoute path="/dialog_demo" exact component={DialogDemo} />,
-  <AuthorizedRoute path="/toast_demo" exact component={ToastDemo} />,
-  <AuthorizedRoute path="/filter_demo" exact component={FilterDemo} />,
-  <AuthorizedRoute path="/list_page_demo" exact component={ListPageDemo} />,
-  <AuthorizedRoute path="/tabs_demo" exact component={TabsDemo} />,
+  <PrivateRoute path="/home" exact component={Home} />,
+  <PrivateRoute path="/dialog_demo" exact component={DialogDemo} />,
+  <PrivateRoute path="/toast_demo" exact component={ToastDemo} />,
+  <PrivateRoute path="/filter_demo" exact component={FilterDemo} />,
+  <PrivateRoute path="/list_page_demo" exact component={ListPageDemo} />,
+  <PrivateRoute path="/tabs_demo" exact component={TabsDemo} />,
 ]
 
 export default routes

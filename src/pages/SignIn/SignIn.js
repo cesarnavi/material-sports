@@ -78,7 +78,7 @@ const SignIn = () => {
       _route = _location.state.from.pathname
       history.push(_route)
     } else {
-      history.push(_route)
+      history.push(_route);
     }
   }
 
@@ -148,4 +148,4 @@ const SignIn = () => {
   )
 }
 
-export default SignIn
+export default SignIn;

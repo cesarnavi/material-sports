@@ -3,18 +3,13 @@ import Page from 'material-ui-shell/lib/containers/Page'
 import React, { useState } from 'react'
 import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
-import { useIntl } from 'react-intl'
 
 export default function () {
   const [tab, setTab] = useState('one')
-  const intl = useIntl()
 
   return (
     <Page
-      pageTitle={intl.formatMessage({
-        id: 'tabs_demo',
-        defaultMessage: 'Tabs demo',
-      })}
+      pageTitle={"Tabs demo"}
       tabs={
         <AppBar position="static">
           <Tabs

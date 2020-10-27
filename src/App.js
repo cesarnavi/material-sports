@@ -1,13 +1,30 @@
 import React, { Component } from 'react'
-import App from 'base-shell/lib'
 import MUIConfig from 'material-ui-shell/lib'
 import merge from 'base-shell/lib/utils/config'
 import _config from './config'
+import Layout from './layout';
+import routes from './config/routes';
 
-const config = merge(MUIConfig, _config)
+const sections = [
+    {title: "SportsBook",url:'/signin'},
+    {title: "Quiniela",url:'/pools'},
+    {title: "Exchange",url:'/exchange'},
+    {title: "Academia",url:'/academy'},
+    {title: "Advice",url:'/advice'},
+    {title: "Data",url:'/data'}
+];
 
-export default class Demo extends Component {
-  render() {
-    return <App config={config} />
-  }
+const config = {
+    header:{
+        title:"BET EXCHANGE",
+        sections
+    },
+    routes
+}
+
+
+export default function App (){
+
+    return <Layout {...config}/>
+  
 }

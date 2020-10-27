@@ -1,19 +1,17 @@
-import Page from 'material-ui-shell/lib/containers/Page'
-import React from 'react'
-import Scrollbar from 'material-ui-shell/lib/components/Scrollbar/Scrollbar'
-import { useIntl } from 'react-intl'
+import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
-const HomePage = () => {
-  const intl = useIntl()
-
+export default function SimpleContainer() {
   return (
-    <Page pageTitle={intl.formatMessage({ id: 'home' })}>
-      <Scrollbar
-        style={{ height: '100%', width: '100%', display: 'flex', flex: 1 }}
-      >
-        {intl.formatMessage({ id: 'home' })}
-      </Scrollbar>
-    </Page>
-  )
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="md" >
+        <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }} >
+          Hola yo soy el Home
+        </Typography>
+      </Container>
+    </React.Fragment>
+  );
 }
-export default HomePage
